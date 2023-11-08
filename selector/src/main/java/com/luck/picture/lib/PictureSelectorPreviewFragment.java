@@ -74,9 +74,6 @@ import com.luck.picture.lib.utils.SdkVersionUtils;
 import com.luck.picture.lib.utils.StyleUtils;
 import com.luck.picture.lib.utils.ToastUtils;
 import com.luck.picture.lib.utils.ValueOf;
-import com.luck.picture.lib.widget.BottomNavBar;
-import com.luck.picture.lib.widget.CompleteSelectView;
-import com.luck.picture.lib.widget.PreviewBottomNavBar;
 import com.luck.picture.lib.widget.PreviewTitleBar;
 import com.luck.picture.lib.widget.TitleBar;
 
@@ -100,7 +97,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
 
     protected PicturePreviewAdapter viewPageAdapter;
 
-    protected PreviewBottomNavBar bottomNarBar;
+   // protected PreviewBottomNavBar bottomNarBar;
 
     protected PreviewTitleBar titleBar;
 
@@ -149,7 +146,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
 
     protected View selectClickArea;
 
-    protected CompleteSelectView completeSelectView;
+    //protected CompleteSelectView completeSelectView;
 
     protected boolean needScaleBig = true;
 
@@ -229,15 +226,15 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
     public void onSelectedChange(boolean isAddRemove, LocalMedia currentMedia) {
         // 更新TitleBar和BottomNarBar选择态
         tvSelected.setSelected(selectorConfig.getSelectedResult().contains(currentMedia));
-        bottomNarBar.setSelectedChange();
-        completeSelectView.setSelectedChange(true);
+        //bottomNarBar.setSelectedChange();
+       // completeSelectView.setSelectedChange(true);
         notifySelectNumberStyle(currentMedia);
         notifyPreviewGalleryData(isAddRemove, currentMedia);
     }
 
     @Override
     public void onCheckOriginalChange() {
-        bottomNarBar.setOriginalCheck();
+      //  bottomNarBar.setOriginalCheck();
     }
 
 
@@ -252,14 +249,14 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         tvSelected = view.findViewById(R.id.ps_tv_selected);
         tvSelectedWord = view.findViewById(R.id.ps_tv_selected_word);
         selectClickArea = view.findViewById(R.id.select_click_area);
-        completeSelectView = view.findViewById(R.id.ps_complete_select);
+        //completeSelectView = view.findViewById(R.id.ps_complete_select);
         magicalView = view.findViewById(R.id.magical);
         viewPager = new ViewPager2(getContext());
-        bottomNarBar = view.findViewById(R.id.bottom_nar_bar);
+       // bottomNarBar = view.findViewById(R.id.bottom_nar_bar);
         magicalView.setMagicalContent(viewPager);
         setMagicalViewBackgroundColor();
         setMagicalViewAction();
-        addAminViews(titleBar, tvSelected, tvSelectedWord, selectClickArea, completeSelectView, bottomNarBar);
+        addAminViews(titleBar, tvSelected, tvSelectedWord, selectClickArea);
         onCreateLoader();
         initTitleBar();
         initViewPagerData(mData);
@@ -654,7 +651,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                 layoutParams.rightMargin = selectMainStyle.getPreviewSelectMarginRight();
             }
         }
-        completeSelectView.setCompleteSelectViewStyle();
+       /* completeSelectView.setCompleteSelectViewStyle();
         completeSelectView.setSelectedChange(true);
         if (selectMainStyle.isCompleteSelectRelativeTop()) {
             if (completeSelectView.getLayoutParams() instanceof ConstraintLayout.LayoutParams) {
@@ -672,7 +669,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                             .getLayoutParams()).topMargin = DensityUtil.getStatusBarHeight(getContext());
                 }
             }
-        }
+        }*/
 
         if (selectMainStyle.isPreviewSelectRelativeBottom()) {
             if (tvSelected.getLayoutParams() instanceof ConstraintLayout.LayoutParams) {
@@ -702,7 +699,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                 }
             }
         }
-        completeSelectView.setOnClickListener(new View.OnClickListener() {
+/*        completeSelectView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean isComplete;
@@ -720,7 +717,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                     }
                 }
             }
-        });
+        });*/
     }
 
 
@@ -1097,7 +1094,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
     }
 
     private void initBottomNavBar() {
-        bottomNarBar.setBottomNavBarStyle();
+        /*bottomNarBar.setBottomNavBarStyle();
         bottomNarBar.setSelectedChange();
         bottomNarBar.setOnBottomNavBarListener(new BottomNavBar.OnBottomNavBarListener() {
 
@@ -1124,7 +1121,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                     confirmSelect(media, false);
                 }
             }
-        });
+        });*/
     }
 
     /**
@@ -1133,8 +1130,8 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
     private void externalPreviewStyle() {
         titleBar.getImageDelete().setVisibility(isDisplayDelete ? View.VISIBLE : View.GONE);
         tvSelected.setVisibility(View.GONE);
-        bottomNarBar.setVisibility(View.GONE);
-        completeSelectView.setVisibility(View.GONE);
+         // bottomNarBar.setVisibility(View.GONE);
+        //completeSelectView.setVisibility(View.GONE);
     }
 
     protected PicturePreviewAdapter createAdapter() {
@@ -1161,8 +1158,8 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
             return;
         }
         LocalMedia media = data.get(curPosition);
-        bottomNarBar.isDisplayEditor(PictureMimeType.isHasVideo(media.getMimeType())
-                || PictureMimeType.isHasAudio(media.getMimeType()));
+       /* bottomNarBar.isDisplayEditor(PictureMimeType.isHasVideo(media.getMimeType())
+                || PictureMimeType.isHasAudio(media.getMimeType()));*/
         tvSelected.setSelected(selectorConfig.getSelectedResult().contains(data.get(viewPager.getCurrentItem())));
         viewPager.registerOnPageChangeCallback(pageChangeCallback);
         viewPager.setPageTransformer(new MarginPageTransformer(DensityUtil.dip2px(getAppContext(), 3)));
@@ -1357,7 +1354,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         for (int i = 0; i < mAnimViews.size(); i++) {
             mAnimViews.get(i).setEnabled(false);
         }
-        bottomNarBar.getEditor().setEnabled(false);
+        //bottomNarBar.getEditor().setEnabled(false);
     }
 
     /**
@@ -1367,7 +1364,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         for (int i = 0; i < mAnimViews.size(); i++) {
             mAnimViews.get(i).setEnabled(true);
         }
-        bottomNarBar.getEditor().setEnabled(true);
+       // bottomNarBar.getEditor().setEnabled(true);
     }
 
     /**
@@ -1455,8 +1452,8 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                     }
                 }
                 notifyGallerySelectMedia(currentMedia);
-                bottomNarBar.isDisplayEditor(PictureMimeType.isHasVideo(currentMedia.getMimeType())
-                        || PictureMimeType.isHasAudio(currentMedia.getMimeType()));
+               /* bottomNarBar.isDisplayEditor(PictureMimeType.isHasVideo(currentMedia.getMimeType())
+                        || PictureMimeType.isHasAudio(currentMedia.getMimeType()));*/
                 if (!isExternalPreview && !isInternalBottomPreview && !selectorConfig.isOnlySandboxDir) {
                     if (selectorConfig.isPageStrategy) {
                         if (isHasMore) {

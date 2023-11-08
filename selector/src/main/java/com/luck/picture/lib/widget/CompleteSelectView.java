@@ -3,10 +3,8 @@ package com.luck.picture.lib.widget;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,7 +13,6 @@ import androidx.core.content.ContextCompat;
 
 import com.luck.picture.lib.R;
 import com.luck.picture.lib.config.SelectorConfig;
-import com.luck.picture.lib.config.SelectorProviders;
 import com.luck.picture.lib.style.BottomNavBarStyle;
 import com.luck.picture.lib.style.PictureSelectorStyle;
 import com.luck.picture.lib.style.SelectMainStyle;
@@ -49,13 +46,13 @@ public class CompleteSelectView extends LinearLayout {
     }
 
     private void init() {
-        inflateLayout();
+        /*inflateLayout();
         setOrientation(LinearLayout.HORIZONTAL);
         tvSelectNum = findViewById(R.id.ps_tv_select_num);
         tvComplete = findViewById(R.id.ps_tv_complete);
         setGravity(Gravity.CENTER_VERTICAL);
         numberChangeAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.ps_anim_modal_in);
-        config = SelectorProviders.getInstance().getSelectorConfig();
+        config = SelectorProviders.getInstance().getSelectorConfig();*/
     }
 
     protected void inflateLayout() {

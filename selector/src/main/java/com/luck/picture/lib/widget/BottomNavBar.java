@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -12,7 +11,6 @@ import androidx.core.content.ContextCompat;
 
 import com.luck.picture.lib.R;
 import com.luck.picture.lib.config.SelectorConfig;
-import com.luck.picture.lib.config.SelectorProviders;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.style.BottomNavBarStyle;
 import com.luck.picture.lib.style.PictureSelectorStyle;
@@ -47,7 +45,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
     }
 
     protected void init() {
-        inflateLayout();
+       /* inflateLayout();
         setClickable(true);
         setFocusable(true);
         config = SelectorProviders.getInstance().getSelectorConfig();
@@ -71,7 +69,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
                 }
             }
         });
-        handleLayoutUI();
+        handleLayoutUI();*/
     }
 
     protected void inflateLayout() {
