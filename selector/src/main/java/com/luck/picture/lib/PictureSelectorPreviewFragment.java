@@ -74,6 +74,8 @@ import com.luck.picture.lib.utils.SdkVersionUtils;
 import com.luck.picture.lib.utils.StyleUtils;
 import com.luck.picture.lib.utils.ToastUtils;
 import com.luck.picture.lib.utils.ValueOf;
+import com.luck.picture.lib.widget.BottomNavBar;
+import com.luck.picture.lib.widget.PreviewBottomNavBar;
 import com.luck.picture.lib.widget.PreviewTitleBar;
 import com.luck.picture.lib.widget.TitleBar;
 
@@ -97,7 +99,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
 
     protected PicturePreviewAdapter viewPageAdapter;
 
-   // protected PreviewBottomNavBar bottomNarBar;
+    //protected PreviewBottomNavBar bottomNarBar;
 
     protected PreviewTitleBar titleBar;
 
@@ -146,7 +148,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
 
     protected View selectClickArea;
 
-    //protected CompleteSelectView completeSelectView;
+   // protected CompleteSelectView completeSelectView;
 
     protected boolean needScaleBig = true;
 
@@ -234,7 +236,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
 
     @Override
     public void onCheckOriginalChange() {
-      //  bottomNarBar.setOriginalCheck();
+       // bottomNarBar.setOriginalCheck();
     }
 
 
@@ -252,7 +254,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         //completeSelectView = view.findViewById(R.id.ps_complete_select);
         magicalView = view.findViewById(R.id.magical);
         viewPager = new ViewPager2(getContext());
-       // bottomNarBar = view.findViewById(R.id.bottom_nar_bar);
+        //bottomNarBar = view.findViewById(R.id.bottom_nar_bar);
         magicalView.setMagicalContent(viewPager);
         setMagicalViewBackgroundColor();
         setMagicalViewAction();
@@ -263,7 +265,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         if (isExternalPreview) {
             externalPreviewStyle();
         } else {
-            initBottomNavBar();
+            //initBottomNavBar();
             initPreviewSelectGallery((ViewGroup) view);
             initComplete();
         }
@@ -651,7 +653,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                 layoutParams.rightMargin = selectMainStyle.getPreviewSelectMarginRight();
             }
         }
-       /* completeSelectView.setCompleteSelectViewStyle();
+        /*completeSelectView.setCompleteSelectViewStyle();
         completeSelectView.setSelectedChange(true);
         if (selectMainStyle.isCompleteSelectRelativeTop()) {
             if (completeSelectView.getLayoutParams() instanceof ConstraintLayout.LayoutParams) {
@@ -699,7 +701,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                 }
             }
         }
-/*        completeSelectView.setOnClickListener(new View.OnClickListener() {
+      /*  completeSelectView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean isComplete;
@@ -1094,7 +1096,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
     }
 
     private void initBottomNavBar() {
-        /*bottomNarBar.setBottomNavBarStyle();
+/*        bottomNarBar.setBottomNavBarStyle();
         bottomNarBar.setSelectedChange();
         bottomNarBar.setOnBottomNavBarListener(new BottomNavBar.OnBottomNavBarListener() {
 
@@ -1130,8 +1132,8 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
     private void externalPreviewStyle() {
         titleBar.getImageDelete().setVisibility(isDisplayDelete ? View.VISIBLE : View.GONE);
         tvSelected.setVisibility(View.GONE);
-         // bottomNarBar.setVisibility(View.GONE);
-        //completeSelectView.setVisibility(View.GONE);
+        //bottomNarBar.setVisibility(View.GONE);
+       // completeSelectView.setVisibility(View.GONE);
     }
 
     protected PicturePreviewAdapter createAdapter() {
@@ -1364,7 +1366,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         for (int i = 0; i < mAnimViews.size(); i++) {
             mAnimViews.get(i).setEnabled(true);
         }
-       // bottomNarBar.getEditor().setEnabled(true);
+        //bottomNarBar.getEditor().setEnabled(true);
     }
 
     /**
@@ -1452,7 +1454,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                     }
                 }
                 notifyGallerySelectMedia(currentMedia);
-               /* bottomNarBar.isDisplayEditor(PictureMimeType.isHasVideo(currentMedia.getMimeType())
+                /*bottomNarBar.isDisplayEditor(PictureMimeType.isHasVideo(currentMedia.getMimeType())
                         || PictureMimeType.isHasAudio(currentMedia.getMimeType()));*/
                 if (!isExternalPreview && !isInternalBottomPreview && !selectorConfig.isOnlySandboxDir) {
                     if (selectorConfig.isPageStrategy) {
