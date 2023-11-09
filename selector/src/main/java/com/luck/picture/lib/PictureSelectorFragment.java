@@ -9,10 +9,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,6 +64,7 @@ import com.luck.picture.lib.utils.StyleUtils;
 import com.luck.picture.lib.utils.ToastUtils;
 import com.luck.picture.lib.utils.ValueOf;
 import com.luck.picture.lib.widget.BottomNavBar;
+import com.luck.picture.lib.widget.CompleteSelectView;
 import com.luck.picture.lib.widget.RecyclerPreloadView;
 import com.luck.picture.lib.widget.SlideSelectTouchListener;
 import com.luck.picture.lib.widget.SlideSelectionHandler;
@@ -90,7 +93,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
     private TextView tvDataEmpty;
     private TitleBar titleBar;
     //private BottomNavBar bottomNarBar;
-    //private CompleteSelectView completeSelectView;
+    private CompleteSelectView completeSelectView;
     private TextView tvCurrentDataTime;
     private long intervalClickTime = 0;
     private int allFolderSize;
@@ -135,7 +138,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
     @Override
     public void onSelectedChange(boolean isAddRemove, LocalMedia currentMedia) {
         //bottomNarBar.setSelectedChange();
-        //completeSelectView.setSelectedChange(false);
+        completeSelectView.setSelectedChange(false);
         // 刷新列表数据
         if (checkNotifyStrategy(isAddRemove)) {
             mAdapter.notifyItemPositionChanged(currentMedia.position);
@@ -235,7 +238,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
         reStartSavedInstance(savedInstanceState);
         isMemoryRecycling = savedInstanceState != null;
         tvDataEmpty = view.findViewById(R.id.tv_data_empty);
-       // completeSelectView = view.findViewById(R.id.ps_complete_select);
+        completeSelectView = view.findViewById(R.id.ps_complete_select);
         titleBar = view.findViewById(R.id.title_bar);
         //bottomNarBar = view.findViewById(R.id.bottom_nar_bar);
         tvCurrentDataTime = view.findViewById(R.id.tv_current_data_time);
@@ -278,9 +281,9 @@ public class PictureSelectorFragment extends PictureCommonFragment
         if (selectorConfig.selectionMode == SelectModeConfig.SINGLE && selectorConfig.isDirectReturnSingle) {
             selectorConfig.selectorStyle.getTitleBarStyle().setHideCancelButton(false);
             titleBar.getTitleCancelView().setVisibility(View.VISIBLE);
-            //completeSelectView.setVisibility(View.GONE);
+            completeSelectView.setVisibility(View.GONE);
         } else {
-            /*completeSelectView.setCompleteSelectViewStyle();
+            completeSelectView.setCompleteSelectViewStyle();
             completeSelectView.setSelectedChange(false);
             SelectMainStyle selectMainStyle = selectorConfig.selectorStyle.getSelectMainStyle();
             if (selectMainStyle.isCompleteSelectRelativeTop()) {
@@ -309,7 +312,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
                         dispatchTransformResult();
                     }
                 }
-            });*/
+            });
         }
     }
 
