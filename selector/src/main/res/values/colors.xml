@@ -16,7 +16,7 @@
     <color name="ps_color_bd">#BDBDBD</color>
     <color name="ps_color_fa">#FAFAFA</color>
     <color name="ps_color_66">#666666</color>
-    <color name="ps_color_fa632d">#FA632D</color>
+    <color name="ps_color_fa632d">#4051bf</color>
     <color name="ps_color_9b">#9b9b9b</color>
     <color name="ps_color_f2">#F2F2F2</color>
     <color name="ps_color_transparent">#00000000</color>
@@ -26,7 +26,7 @@
     <color name="ps_color_f0">#F0F0F0</color>
     <color name="ps_color_grey_3e">#dd393a3e</color>
     <color name="ps_color_4d">#4d4d4d</color>
-    <color name="ps_color_e0ff6100">#E0FF6100</color>
+    <color name="ps_color_e0ff6100">#4051bf</color>
     <color name="ps_color_eb">#ebebeb</color>
     <color name="ps_color_ba3">#b0567ba3</color>
     <color name="ps_color_bfe85d">#BF96E85D</color>
@@ -39,7 +39,7 @@
     <color name="ps_color_4e4d4e">#4e4d4e</color>
     <color name="ps_color_aab2bd">#AAB2BD</color>
     <color name="ps_color_half_white">#99FFFFFF</color>
-    <color name="ps_color_ff572e">#ff572e</color>
+    <color name="ps_color_ff572e">#4051bf</color>
     <color name="ps_color_529BeA">#529BeA</color>
     <color name="ps_color_8D57FC">#8D57FC</color>
     <color name="ps_color_0077F6">#0077F6</color>
